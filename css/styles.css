@@ -1,0 +1,47 @@
+#mapContainer {
+  backgroundColor: #ccc;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+
+#legend {
+  border: 1px solid #595A5C;
+  border-radius: 15px;
+  padding: 0px 15px 0px 15px;
+  display: inline-block;
+  margin-top: 35px;
+}
+
+html, body, a:visited {
+  margin: 0;
+  height: 100%;
+  font-family: "Helvetica", serif;
+  background-color: #F9FAFC;
+  color: #ccc;
+
+}
+
+a:hover {
+  color: #008999;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  width: 500px;
+  height: 100%;
+  padding: 10px 30px 15px 30px;
+  box-sizing: border-box;
+  background-color: #191A1A;
+
+}
+
+.sidebar h3 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #98f0fa;
+}

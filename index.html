@@ -1,0 +1,51 @@
+<!doctype html>
+
+<!--Source data: https://data.cityofnewyork.us/Recreation/NYC-Parks-Dog-Runs/8nac-uner
+    Dog run centerpoint coordinates and the square footage of each dog run were calculated in QGIS.-->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NYC Floodplains</title>
+
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="icon" type="image/x-icon" href="wave.png">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <div class='container'>
+    <div class='sidebar'>
+    <h3 class>NYCHA Coastal Resiliency</h3>
+
+    <p>
+      In October 2012, the storm surge from Superstorm Sandy impacted 10% of the New York Housing Authority's (NYCHA) low- and moderate-income developments. Hundreds of buildings were left without power, heat, and hot water for several months. NYCHA sustained over $3 billion in damage.<br><br>
+      This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population.</p>
+    <p><i>
+      Source data:
+      <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">1</a>,
+      <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-500-year-Floodplain-/ajyu-7sgg" target="_blank">2</a>,
+      <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">3</a>
+    </i></p>
+
+      <div id='legend'>
+        <p><b>Legend</b></p>
+          <p>
+          <font color = #ffbd24>⬤&nbsp;</font> NYCHA development<br>
+          <font color = #98f0fa>⬤&nbsp;</font> 100-year Floodplains<br>
+          <font color = #008999>⬤&nbsp;</font> 500-year Floodplains<br>
+          </p>
+      </div>
+    </div>
+    <div id='mapContainer'>
+    <!-- this is where mapboxGL will insert the map -->
+    </div>
+  </div>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
