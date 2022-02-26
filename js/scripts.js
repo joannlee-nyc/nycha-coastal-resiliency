@@ -35,7 +35,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
         'source': '500yr-floodplain',
         'paint': {
           'fill-color': '#008999',
-          'fill-opacity': .3,
+          'fill-opacity': .5,
         }
       });
 
@@ -45,7 +45,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
         'source': '100yr-floodplain',
         'paint': {
           'fill-color': '#98f0fa',
-          'fill-opacity': .3,
+          'fill-opacity': .5,
         }
 
       });
