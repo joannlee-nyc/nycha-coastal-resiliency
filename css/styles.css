@@ -45,3 +45,42 @@ a:hover {
   font-weight: 800;
   color: #98f0fa;
 }
+
+
+/* button from https://getcssscan.com/css-buttons-examples */
+.button-1 {
+  background-color: #191A1A;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #3e3e3e
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#toggle-100yr-fp:hover{
+  border-color: #98F0FA;
+}
+
+#toggle-500yr-fp:hover{
+  border-color: #008999;
+}
+/*end button*/
