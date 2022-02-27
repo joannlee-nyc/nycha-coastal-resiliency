@@ -6,7 +6,7 @@
 }
 
 #legend {
-  border: 1px solid #595A5C;
+  border: 2px solid #e3e3e3;
   border-radius: 15px;
   padding: 0px 15px 0px 15px;
   display: inline-block;
@@ -18,7 +18,7 @@ html, body, a:visited {
   height: 100%;
   font-family: "Helvetica", serif;
   background-color: #F9FAFC;
-  color: #ccc;
+  color: #e3e3e3;
 
 }
 
@@ -52,7 +52,7 @@ a:hover {
   background-color: #191A1A;
   border-radius: 8px;
   border-style: solid;
-  border-color: #3e3e3e
+  border-color: #e3e3e3;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
