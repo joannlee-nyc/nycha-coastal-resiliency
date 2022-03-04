@@ -30,22 +30,28 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
         });
 
       map.addLayer({
-        'id': '500yr-floodplain-fill',
+        'id': '500-year floodplain',
         'type': 'fill',
         'source': '500yr-floodplain',
         'paint': {
           'fill-color': '#008999',
           'fill-opacity': .5,
+        },
+        'layout': {
+          'visibility': 'none'
         }
       });
 
       map.addLayer({
-        'id': '100yr-floodplain-fill',
+        'id': '100-year floodplain',
         'type': 'fill',
         'source': '100yr-floodplain',
         'paint': {
           'fill-color': '#98f0fa',
           'fill-opacity': .5,
+        },
+        'layout': {
+          'visibility': 'none'
         }
 
       });
@@ -60,8 +66,61 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
         }
 
       });
+//toggle code from https://docs.mapbox.com/mapbox-gl-js/example/toggle-layers/
+    // After the last frame rendered before the map enters an "idle" state.
+    map.on('idle', () => {
+      // If these two layers were not added to the map, abort
+      if (!map.getLayer('100-year floodplain') || !map.getLayer('500-year floodplain')) {
+      return;
+      }
 
+    // Enumerate ids of the layers.
+    const toggleableLayerIds = ['100-year floodplain', '500-year floodplain'];
 
+    // Set up the corresponding toggle button for each layer.
+    for (const id of toggleableLayerIds) {
+      // Skip layers that already have a button set up.
+      if (document.getElementById(id)) {
+      continue;
+      }
+
+      // Create a link.
+      const link = document.createElement('a');
+      link.id = id;
+      link.href = '#';
+      link.textContent = id;
+      //link.className = 'active';
+
+      // Show or hide layer when the toggle is clicked.
+      link.onclick = function (e) {
+        const clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        const visibility = map.getLayoutProperty(
+          clickedLayer,
+          'visibility'
+        );
+
+        // Toggle layer visibility by changing the layout object's visibility property.
+        if (visibility === 'visible') {
+          map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+          this.className = '';
+        } else {
+          this.className = 'active';
+          map.setLayoutProperty(
+            clickedLayer,
+            'visibility',
+            'visible'
+            );
+          }
+        };
+
+        const layers = document.getElementById('menu');
+        layers.appendChild(link);
+        }
+        });
+//end toggle
 
       // Create a popup, but don't add it to the map yet.
     const popup = new mapboxgl.Popup({
@@ -100,10 +159,14 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
       popup.remove();
     });
 
+/*old toggle
     $('#toggle-100yr-fp').on('click', function() {
         var visibility = map.getLayoutProperty('100yr-floodplain-fill', 'visibility')
         if (visibility === 'none') {
           map.setLayoutProperty('100yr-floodplain-fill', 'visibility', 'visible');
+          $('button').removeClass('active')
+          // add 'selected' class to this button
+          $(this).addClass('active')
         } else {
           map.setLayoutProperty('100yr-floodplain-fill', 'visibility', 'none');
         }
@@ -113,10 +176,13 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
           var visibility = map.getLayoutProperty('500yr-floodplain-fill', 'visibility')
           if (visibility === 'none') {
             map.setLayoutProperty('500yr-floodplain-fill', 'visibility', 'visible');
+            $('button').removeClass('active')
+            // add 'selected' class to this button
+            $(this).addClass('active')
           } else {
             map.setLayoutProperty('500yr-floodplain-fill', 'visibility', 'none');
           }
         })
-
+*/
 
 })

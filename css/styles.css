@@ -46,41 +46,50 @@ a:hover {
   color: #98f0fa;
 }
 
-
-/* button from https://getcssscan.com/css-buttons-examples */
-.button-1 {
-  background-color: #191A1A;
-  border-radius: 8px;
-  border-style: solid;
-  border-color: #e3e3e3;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 40px;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 10px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: color 100ms;
-  vertical-align: baseline;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.active{
+  background-color: #495252;
 }
 
-#toggle-100yr-fp:hover{
-  border-color: #98F0FA;
+/*toggle styling*/
+#menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    border-radius: 3px;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-family: 'Helvetica', sans-serif;
 }
 
-#toggle-500yr-fp:hover{
-  border-color: #008999;
+#menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    text-align: center;
 }
-/*end button*/
+
+#menu a:last-child {
+    border: none;
+}
+
+#menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+}
+
+#menu a.active {
+    background-color: #3887be;
+    color: #ffffff;
+}
+
+#menu a.active:hover {
+    background: #3074a4;
+}
+/*end toggle styling*/

@@ -1,8 +1,5 @@
 <!doctype html>
 
-<!--Source data: https://data.cityofnewyork.us/Recreation/NYC-Parks-Dog-Runs/8nac-uner
-    Dog run centerpoint coordinates and the square footage of each dog run were calculated in QGIS.-->
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -23,15 +20,14 @@
 
     <p>
       In October 2012, the storm surge from Superstorm Sandy impacted 10% of the New York Housing Authority's (NYCHA) low- and moderate-income developments. Hundreds of buildings were left without power, heat, and hot water for several months. NYCHA sustained over $3 billion in damage.<br><br>
-      This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population.</p>
+      This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population. Toggle between the 100- and 500-year floodplains to see which developments will be impacted by storm surge.</p>
     <p><i>
       Source data:
       <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">1</a>,
       <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-500-year-Floodplain-/ajyu-7sgg" target="_blank">2</a>,
       <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">3</a>
       </i></p>
-    <button class='button-1' id='toggle-100yr-fp' role='button'>Toggle 100-year floodplain</button>
-    <button class='button-1' id='toggle-500yr-fp' role='button'>Toggle 500-year floodplain</button>
+
     <div id='legend'>
       <p><b>Legend</b></p>
         <p>
@@ -45,6 +41,7 @@
 
 
     </div>
+    <nav id="menu"></nav>
     <div id='mapContainer'>
     <!-- this is where mapboxGL will insert the map -->
     </div>
