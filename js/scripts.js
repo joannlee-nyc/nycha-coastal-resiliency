@@ -159,30 +159,4 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta
       popup.remove();
     });
 
-/*old toggle
-    $('#toggle-100yr-fp').on('click', function() {
-        var visibility = map.getLayoutProperty('100yr-floodplain-fill', 'visibility')
-        if (visibility === 'none') {
-          map.setLayoutProperty('100yr-floodplain-fill', 'visibility', 'visible');
-          $('button').removeClass('active')
-          // add 'selected' class to this button
-          $(this).addClass('active')
-        } else {
-          map.setLayoutProperty('100yr-floodplain-fill', 'visibility', 'none');
-        }
-      })
-
-      $('#toggle-500yr-fp').on('click', function() {
-          var visibility = map.getLayoutProperty('500yr-floodplain-fill', 'visibility')
-          if (visibility === 'none') {
-            map.setLayoutProperty('500yr-floodplain-fill', 'visibility', 'visible');
-            $('button').removeClass('active')
-            // add 'selected' class to this button
-            $(this).addClass('active')
-          } else {
-            map.setLayoutProperty('500yr-floodplain-fill', 'visibility', 'none');
-          }
-        })
-*/
-
 })
