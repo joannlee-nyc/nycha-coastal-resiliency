@@ -193,7 +193,7 @@ map.on("load", function () {
     }
 
     var popupContent = `
-        <h3 style="color:#404040;">${name}</h3>
+        <h6 style="color:#404040; text-align:center;">${name}</h6>
         <p style="color:#404040;"><strong>Population:</strong> ${population}</p>
       `;
 

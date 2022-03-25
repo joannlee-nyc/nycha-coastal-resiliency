@@ -70,6 +70,34 @@ a:hover {
   cursor: pointer;
 }
 
+/*popup styling*/
+/* Marker tweaks */
+.mapboxgl-popup-close-button {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  font:  'Helvetica', sans-serif;
+  padding: 10;
+}
+
+.mapboxgl-popup-content h3 {
+  background: #91c949;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 700;
+  margin-top: -15px;
+}
+
+.mapboxgl-popup-content h4 {
+  margin: 0;
+  padding: 10px;
+  font-weight: 400;
+}
+/*end popup styling*?
+
 /*toggle styling*/
 #menu {
     background: #fff;
