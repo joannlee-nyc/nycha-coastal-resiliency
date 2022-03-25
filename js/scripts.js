@@ -136,18 +136,31 @@ map.on("load", function () {
       // Show or hide layer when the toggle is clicked.
       link.onclick = function (e) {
         const clickedLayer = this.textContent;
+        console.log('clickedLayer', clickedLayer)
         e.preventDefault();
         e.stopPropagation();
 
         const visibility = map.getLayoutProperty(clickedLayer, "visibility");
 
+        var complementaryLayer
+
+        if (clickedLayer === 'Moderate Stormwater Flood') {
+          complementaryLayer = 'Extreme Stormwater Flood'
+        }
+
+        if (clickedLayer === 'Extreme Stormwater Flood') {
+          complementaryLayer = 'Moderate Stormwater Flood'
+        }
+
         // Toggle layer visibility by changing the layout object's visibility property.
         if (visibility === "visible") {
           map.setLayoutProperty(clickedLayer, "visibility", "none");
+          map.setLayoutProperty(complementaryLayer, 'visibilty', 'visible')
           this.className = "";
         } else {
           this.className = "active";
           map.setLayoutProperty(clickedLayer, "visibility", "visible");
+          map.setLayoutProperty(complementaryLayer, 'visibilty', 'none')
         }
       };
 
