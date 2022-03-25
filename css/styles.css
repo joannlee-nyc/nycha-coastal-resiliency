@@ -26,9 +26,17 @@ a:hover {
   color: #98F0FA;
 }
 
-.container {
+#parent-container {
   display: flex;
+  flex-direction: column;
   height: 100%;
+  overflow: hidden;
+}
+
+.content-area {
+  display: flex;
+  flex-grow: 1;
+  min-height: 0;
 }
 
 .sidebar {
