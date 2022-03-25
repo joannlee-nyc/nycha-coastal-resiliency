@@ -1,101 +1,70 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>NYC Floodplains</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
-  <link rel="icon" type="image/x-icon" href="wave.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
+    <title>NYC Floodplains</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="icon" type="image/x-icon" href="wave.png">
+    <link rel="stylesheet" href="css/styles.css">
 
-<body>
-  <div id='parent-container'>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
+  </head>
 
-      <!-- Navbar brand -->
-      <a class="navbar-brand" href="#">Brand</a>
+  <body>
+    <div id='parent-container'>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#003440;border-bottom: 1px solid #5e5e5e;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
 
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+          <!-- Navbar brand -->
+          <a class="navbar-brand" href="#"><i class="fa-solid fa-house-flood-water"></i></i> NYCHA Flood Vulnerability</a>
 
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Toggle button -->
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
 
-          <!-- Link -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- Link -->
+            </ul>
 
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="#">Action</a>
+            <!-- Icons (these will show up on the right) -->
+            <ul class="navbar-nav d-flex flex-row me-1">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">About</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="https://github.com/joannlee-nyc/nycha-coastal-resiliency" target="_blank"><i class="fab fa-github"></i></a>
               </li>
             </ul>
-          </li>
 
-        </ul>
+          </div>
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+      <div class='content-area'>
+        <div class='sidebar'>
+          <h3 class>NYCHA Coastal Resiliency</h3>
 
-        <!-- Icons -->
-        <ul class="navbar-nav d-flex flex-row me-1">
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-        </ul>
+          <p>
+            In October 2012, the storm surge from Superstorm Sandy impacted 10% of the New York Housing Authority's (NYCHA) low- and moderate-income developments. Hundreds of buildings were left without power, heat, and hot water for several months. NYCHA sustained over $3 billion in damage.<br><br>
+            This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population. Toggle between the 100- and 500-year floodplains to see which developments will be impacted by future storm surge.</p>
+          <p><i>
+              Source data:
+              <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">1</a>,
+              <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-500-year-Floodplain-/ajyu-7sgg" target="_blank">2</a>,
+              <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">3</a>
+            </i></p>
 
-        <!-- Search -->
-        <form class="w-auto">
-          <input type="search" class="form-control" placeholder="Type query" aria-label="Search">
-        </form>
-
-      </div>
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
-  <div class='content-area'>
-    <div class='sidebar'>
-    <h3 class>NYCHA Coastal Resiliency</h3>
-
-    <p>
-      In October 2012, the storm surge from Superstorm Sandy impacted 10% of the New York Housing Authority's (NYCHA) low- and moderate-income developments. Hundreds of buildings were left without power, heat, and hot water for several months. NYCHA sustained over $3 billion in damage.<br><br>
-      This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population. Toggle between the 100- and 500-year floodplains to see which developments will be impacted by future storm surge.</p>
-    <p><i>
-      Source data:
-      <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">1</a>,
-      <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-500-year-Floodplain-/ajyu-7sgg" target="_blank">2</a>,
-      <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">3</a>
-      </i></p>
-
-    <!--<div id='legend'>
+          <!--<div id='legend'>
       <p><b>Legend</b></p>
         <p>
         <font color = #ffbd24>⬤&nbsp;</font> NYCHA development<br>
@@ -107,16 +76,36 @@
 
 
 
+        </div>
+        <nav id="menu"></nav>
+        <div id='mapContainer'>
+          <!-- this is where mapboxGL will insert the map -->
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">About this Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Here we can add plenty of info about the data, methodology, design inspiration, the issue at hand, or anything else.</p>
+                <p>You could also show this modal when the page first loads, as a splash screen of sorts.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <nav id="menu"></nav>
-    <div id='mapContainer'>
-    <!-- this is where mapboxGL will insert the map -->
-    </div>
-  </div>
-</div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="js/scripts.js"></script>
-</body>
+    <script src="https://kit.fontawesome.com/be88cbc39c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+
 </html>

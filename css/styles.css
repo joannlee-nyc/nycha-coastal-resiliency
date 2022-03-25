@@ -42,7 +42,7 @@ a:hover {
 .sidebar {
   width: 500px;
   height: 100%;
-  padding: 10px 30px 15px 30px;
+  padding: 20px 30px 15px 30px;
   box-sizing: border-box;
   background-color: #191A1A;
 
@@ -54,13 +54,28 @@ a:hover {
   color: #98f0fa;
 }
 
+/* style the "brand" or logo area */
+.navbar-brand {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.reset {
+  margin-bottom: 25px;
+}
+
+.reset:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 /*toggle styling*/
 #menu {
     background: #fff;
     position: absolute;
     z-index: 1;
-    top: 10px;
+    top: 60px;
     right: 10px;
     border-radius: 3px;
     width: 200px;
@@ -98,3 +113,8 @@ a:hover {
     background: #3074a4;
 }
 /*end toggle styling*/
+
+#exampleModal{
+  padding-top: 80px;
+  color: #191A1A;
+}
