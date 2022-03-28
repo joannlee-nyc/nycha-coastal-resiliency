@@ -39,7 +39,7 @@ map.on("load", function () {
   map.addSource("nycha-developments", {
     type: "geojson",
     // Use a URL for the value for the `data` property.
-    data: "./data/nycha_developments.geojson",
+    data: "./data/nycha_developments2.geojson",
   });
 
   map.addLayer({
@@ -125,7 +125,12 @@ map.on("load", function () {
       link.id = id;
       link.href = "#";
       link.textContent = id;
-      link.className = 'active';
+      if (id === '100-year Floodplain') {
+        link.className = 'active';
+      }
+      if (id === 'Moderate Stormwater Flood') {
+        link.className = 'active';
+      }
 
       // Show or hide layer when the toggle is clicked.
       link.onclick = function (e) {
@@ -163,7 +168,7 @@ map.on("load", function () {
         } else {
           this.className = "active";
           map.setLayoutProperty(clickedLayer, "visibility", "visible");
-          map.setLayoutProperty(complementaryLayer, 'visibilty', 'none')
+          map.setLayoutProperty(complementaryLayer, 'visibility', 'none');
         }
       };
 
@@ -187,6 +192,7 @@ map.on("load", function () {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const name = e.features[0].properties.development;
     const population = e.features[0].properties.total_pop;
+    const planned_projects = e.features[0].properties.planned_projects;
 
     // Ensure that if the map is zoomed out such that multiple
     // copies of the feature are visible, the popup appears
@@ -197,7 +203,10 @@ map.on("load", function () {
 
     var popupContent = `
         <h6 style="color:#404040; text-align:center;">${name}</h6>
-        <p style="color:#404040;"><strong>Population:</strong> ${population}</p>
+        <p style="color:#404040;">
+          <strong>Population:</strong> ${population}<br>
+          <strong>Planned Resiliency Upgrades:</strong> ${planned_projects}
+        </p>
       `;
 
     // Populate the popup and set its coordinates
