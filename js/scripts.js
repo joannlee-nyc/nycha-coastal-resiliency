@@ -125,10 +125,7 @@ map.on("load", function () {
       link.id = id;
       link.href = "#";
       link.textContent = id;
-      if (id === '100-year Floodplain') {
-        link.className = 'active';
-      }
-      if (id === 'Moderate Stormwater Flood') {
+      if (id === '100-year Floodplain' || id === 'Moderate Stormwater Flood') {
         link.className = 'active';
       }
 
