@@ -63,9 +63,6 @@ map.on("load", function () {
       "fill-color": "#98f0fa",
       "fill-opacity": 0.5,
     },
-    layout: {
-      visibility: "none",
-    },
   });
 
   map.addLayer({
@@ -75,9 +72,6 @@ map.on("load", function () {
     paint: {
       "fill-color": "#008999",
       "fill-opacity": 0.5,
-    },
-    layout: {
-      visibility: "none",
     },
   });
 
@@ -131,7 +125,7 @@ map.on("load", function () {
       link.id = id;
       link.href = "#";
       link.textContent = id;
-      //link.className = 'active';
+      link.className = 'active';
 
       // Show or hide layer when the toggle is clicked.
       link.onclick = function (e) {
@@ -152,11 +146,20 @@ map.on("load", function () {
           complementaryLayer = 'Moderate Stormwater Flood'
         }
 
+        if (clickedLayer === '100-year Floodplain') {
+          complementaryLayer = '500-year Floodplain'
+        }
+
+        if (clickedLayer === '500-year Floodplain') {
+          complementaryLayer = '100-year Floodplain'
+        }
+
         // Toggle layer visibility by changing the layout object's visibility property.
         if (visibility === "visible") {
+          this.className = "";
           map.setLayoutProperty(clickedLayer, "visibility", "none");
           map.setLayoutProperty(complementaryLayer, 'visibilty', 'visible')
-          this.className = "";
+
         } else {
           this.className = "active";
           map.setLayoutProperty(clickedLayer, "visibility", "visible");
