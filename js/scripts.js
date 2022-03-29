@@ -143,7 +143,7 @@ map.on("load", function () {
       const link = document.createElement("a");
       link.id = id;
       link.href = "#";
-      link.textContent = label;
+      link.textContent = id;
       if (id === 'floodplain-100' || id === 'stormwater-moderate') {
         link.className = 'active';
       }
