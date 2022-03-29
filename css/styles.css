@@ -13,6 +13,13 @@
   margin-top: 35px;
 }
 
+#call-to-action {
+  border: 2px dotted #e3e3e3;
+  border-radius: 15px;
+  padding: 20px;
+  display: inline-block;
+}
+
 html, body, a:visited {
   margin: 0;
   height: 100%;
@@ -145,7 +152,7 @@ a:hover {
 /*end toggle styling*/
 
 #exampleModal{
-  
+
   color: #191A1A;
 }
 

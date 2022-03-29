@@ -9,6 +9,7 @@ var map = new mapboxgl.Map({
   style: "mapbox://styles/mapbox/dark-v9", // style URL
   center: nycCenter, // starting position as [lng, lat]
   zoom: 10,
+  minZoom:9.5,
 });
 
 map.on("load", function () {
@@ -43,7 +44,7 @@ map.on("load", function () {
   });
 
   map.addLayer({
-    id: "500-year Floodplain",
+    id: "floodplain-500",
     type: "fill",
     source: "500yr-floodplain",
     paint: {
@@ -56,7 +57,7 @@ map.on("load", function () {
   });
 
   map.addLayer({
-    id: "100-year Floodplain",
+    id: "floodplain-100",
     type: "fill",
     source: "100yr-floodplain",
     paint: {
@@ -66,7 +67,7 @@ map.on("load", function () {
   });
 
   map.addLayer({
-    id: "Moderate Stormwater Flood",
+    id: "stormwater-moderate",
     type: "fill",
     source: "moderate-stormwater-flood",
     paint: {
@@ -76,7 +77,7 @@ map.on("load", function () {
   });
 
   map.addLayer({
-    id: "Extreme Stormwater Flood",
+    id: "stormwater-extreme",
     type: "fill",
     source: "extreme-stormwater-flood",
     paint: {
@@ -102,16 +103,34 @@ map.on("load", function () {
   map.on("idle", () => {
     // If these two layers were not added to the map, abort
     if (
-      !map.getLayer("100-year Floodplain") ||
-      !map.getLayer("500-year Floodplain") ||
-      !map.getLayer("Moderate Stormwater Flood") ||
-      !map.getLayer("Extreme Stormwater Flood")
+      !map.getLayer('floodplain-100') ||
+      !map.getLayer('floodplain-500') ||
+      !map.getLayer('stormwater-moderate') ||
+      !map.getLayer('stormwater-extreme')
     ) {
       return;
     }
 
     // Enumerate ids of the layers.
-    const toggleableLayerIds = ["100-year Floodplain", "500-year Floodplain", "Moderate Stormwater Flood", "Extreme Stormwater Flood"];
+    //const toggleableLayerIds = ['floodplain-100', 'floodplain-500', 'stormwater-moderate', 'stormwater-extreme'];
+    const toggleableLayerIds = [
+      {
+        id: 'floodplain-100',
+        label: '100-year Floodplain'
+      },
+      {
+        id: 'floodplain-500',
+        label: '500-year Floodplain'
+      },
+      {
+        id: 'stormwater-moderate',
+        label: 'Moderate Stormwater Flood'
+      },
+      {
+        id: 'stormwater-extreme',
+        label: 'Extreme Stormwater Flood'
+      },
+    ];
 
     // Set up the corresponding toggle button for each layer.
     for (const id of toggleableLayerIds) {
@@ -124,8 +143,8 @@ map.on("load", function () {
       const link = document.createElement("a");
       link.id = id;
       link.href = "#";
-      link.textContent = id;
-      if (id === '100-year Floodplain' || id === 'Moderate Stormwater Flood') {
+      link.textContent = label;
+      if (id === 'floodplain-100' || id === 'stormwater-moderate') {
         link.className = 'active';
       }
 
@@ -140,20 +159,20 @@ map.on("load", function () {
 
         var complementaryLayer
 
-        if (clickedLayer === 'Moderate Stormwater Flood') {
-          complementaryLayer = 'Extreme Stormwater Flood'
+        if (clickedLayer === 'stormwater-moderate') {
+          complementaryLayer = 'stormwater-extreme'
         }
 
-        if (clickedLayer === 'Extreme Stormwater Flood') {
-          complementaryLayer = 'Moderate Stormwater Flood'
+        if (clickedLayer === 'stormwater-extreme') {
+          complementaryLayer = 'stormwater-moderate'
         }
 
-        if (clickedLayer === '100-year Floodplain') {
-          complementaryLayer = '500-year Floodplain'
+        if (clickedLayer === 'floodplain-100') {
+          complementaryLayer = 'floodplain-500'
         }
 
-        if (clickedLayer === '500-year Floodplain') {
-          complementaryLayer = '100-year Floodplain'
+        if (clickedLayer === 'floodplain-500') {
+          complementaryLayer = 'floodplain-100'
         }
 
         // Toggle layer visibility by changing the layout object's visibility property.
