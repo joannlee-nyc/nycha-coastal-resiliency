@@ -157,16 +157,19 @@ map.on("load", function () {
         }
 
         // Toggle layer visibility by changing the layout object's visibility property.
-        if (visibility === "visible") {
-          this.className = "";
-          map.setLayoutProperty(clickedLayer, "visibility", "none");
-          map.setLayoutProperty(complementaryLayer, 'visibilty', 'visible')
-
-        } else {
+        if (visibility === "none") {
           this.className = "active";
           map.setLayoutProperty(clickedLayer, "visibility", "visible");
           map.setLayoutProperty(complementaryLayer, 'visibility', 'none');
+        } else {
+          this.className = "";
+          map.setLayoutProperty(clickedLayer, "visibility", "none");
+          map.setLayoutProperty(complementaryLayer, 'visibilty', 'visible')
         }
+
+        $('500-year Floodplain').on('click', function() {
+          $('#100-year Floodplain').removeClass('active')})
+
       };
 
       const layers = document.getElementById("menu");

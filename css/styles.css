@@ -49,9 +49,10 @@ a:hover {
 }
 
 .sidebar h3 {
-  font-size: 48px;
+  font-size: 24px;
   font-weight: 800;
   color: #98f0fa;
+  padding-bottom: 10px;
 }
 
 /* style the "brand" or logo area */
@@ -59,6 +60,7 @@ a:hover {
   font-family: 'Helvetica', sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
+  padding-left: 20px;
 }
 
 .reset {
@@ -143,6 +145,11 @@ a:hover {
 /*end toggle styling*/
 
 #exampleModal{
-  padding-top: 80px;
+  
   color: #191A1A;
+}
+
+#exampleModal a{
+  color: #008999;
+
 }

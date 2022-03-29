@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>NYC Floodplains</title>
+    <title>NYCHA Flood Vulnerability</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="icon" type="image/x-icon" href="wave.png">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="css/styles.css">
 
   </head>
@@ -52,11 +52,12 @@
       <!-- Navbar -->
       <div class='content-area'>
         <div class='sidebar'>
-          <h3 class>NYCHA Coastal Resiliency</h3>
+          <h3 class>How protected is New York City's public housing stock against rising sea levels and stormwater flooding?</h3>
 
           <p>
             In October 2012, the storm surge from Superstorm Sandy impacted 10% of the New York Housing Authority's (NYCHA) low- and moderate-income developments. Hundreds of buildings were left without power, heat, and hot water for several months. NYCHA sustained over $3 billion in damage.<br><br>
-            This map displays NYCHA properties and populations in relation to 100- and 500-Year floodplains based on 2020 projections. Hover over a development to see its name and population. Toggle between the 100- and 500-year floodplains to see which developments will be impacted by future storm surge.</p>
+            This map displays NYCHA properties in relation to 100- and 500-Year floodplains based on 2020 projections and moderate and extreme stormwater flood events. <br><br>
+            Hover over a development to see its name, population, and whether it will receive or has received resiliency upgrades. Toggle between the future floodplains and stormwater floodmaps to see which developments will be impacted by rising sea levels and future storm surge.</p>
           <p><i>
               Source data:
               <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">1</a>,
@@ -86,12 +87,27 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">About this Project</h5>
+                <h5 class="modal-title" id="exampleModalLabel">About This Map</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p>Here we can add plenty of info about the data, methodology, design inspiration, the issue at hand, or anything else.</p>
-                <p>You could also show this modal when the page first loads, as a splash screen of sorts.</p>
+                <p><b>Background:</b><br>
+                  New York City's waterfront has seen rapid transformation in recent years, particularly as abandoned lots and industrial hubs were converted to luxury developments. Often tucked between or shadowed by these new developments are many of the city's original waterfront housing: NYCHA developments.<br><br>
+
+                  I created this map to illustrate the threats that NYCHA residents face resulting from climate change and its associated sea level rise and future storm surge. Climate change has the potential to displace some of our city's most vulnerable residents, and they must not be left out of the conversation as we plan for future resiliency.
+                </p>
+                <p><b>Methodology:</b><br>
+                  This map was created entirely using public data published by the City of New York and the <a href="https://docs.mapbox.com/mapbox-gl-js/guides/" target="_blank">Mapbox GL JS</a> library. Further data cleaning and geospatial analysis was completed using <a href="https://qgis.org/en/site/" target="_blank">QGIS.</a>
+                </p>
+                <p><b>Data Sources:</b><br>
+                  <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">100-year Floodplain</a>*,
+                  <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-500-year-Floodplain-/ajyu-7sgg" target="_blank">500-year Floodplain</a>*,
+                  <a href="https://data.cityofnewyork.us/City-Government/NYC-Stormwater-Flood-Map-Moderate-Flood/5rzh-cyqd" target="_blank">NYC Stormwater Flood Map - Moderate Flood</a>,
+                  <a href="https://data.cityofnewyork.us/City-Government/NYC-Stormwater-Flood-Map-Extreme-Flood/w8eg-8ha6" target="_blank">NYC Stormwater Flood Map - Extreme Flood</a>,
+                  <a href="https://data.cityofnewyork.us/City-Government/NYC-Recovery-Resiliency-Projects-Map-Polygons/fpuh-f5mr" target="_blank">NYC Recovery & Resiliency Projects Map</a>,
+                  <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">Map of NYCHA Developments</a><br><br>
+                  <i>*Clipped to <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm" target="_blank">NYC Borough Boundaries</a>using QGIS.</i>
+                </p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
