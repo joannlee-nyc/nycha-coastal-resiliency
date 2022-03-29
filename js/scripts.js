@@ -164,7 +164,7 @@ map.on("load", function () {
         } else {
           this.className = "";
           map.setLayoutProperty(clickedLayer, "visibility", "none");
-          map.setLayoutProperty(complementaryLayer, 'visibilty', 'visible')
+          map.setLayoutProperty(complementaryLayer, 'visibility', 'visible')
         }
 
         $('500-year Floodplain').on('click', function() {
