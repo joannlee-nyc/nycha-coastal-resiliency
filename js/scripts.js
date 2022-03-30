@@ -12,6 +12,21 @@ var map = new mapboxgl.Map({
   minZoom:9.5,
 });
 
+// Statistics for accordion
+var stat100 = [`
+  <span style="color:#98f0fa;"><b>143,990</b></span> residents across <span style="color:#98f0fa;"><b>78</b></span> developments live in the 100-year floodplain.`
+
+];
+var stat500 = [`
+  <span style="color:#98f0fa;"><b>202,130</b></span> residents across <span style="color:#98f0fa;"><b>112</b></span> developments live in the 500-year floodplain.`
+];
+var statMod = [`
+  <span style="color:#98f0fa;"><b>171,332</b></span> residents across <span style="color:#98f0fa;"><b>93</b></span> developments live in areas that experience flooding during moderate flood events.`
+];
+var statExtr = [`
+  <span style="color:#98f0fa;"><b>312,573</b></span> residents across <span style="color:#98f0fa;"><b>192</b></span> developments live in areas that experience flooding during extreme flood events.`
+];
+
 map.on("load", function () {
   map.addSource("500yr-floodplain", {
     type: "geojson",
@@ -206,19 +221,24 @@ map.on("load", function () {
           var selectedLayer = "floodplain-100"
           var unselectedLayer = "floodplain-500"
           var unselectedId = "#500"
+          $('#floodplainStat').html(stat100);
+
         } else if (this.id == '500'){
           var selectedLayer = "floodplain-500"
           var unselectedLayer = "floodplain-100"
           var unselectedId = "#100"
+          $('#floodplainStat').html(stat500);
         }
         if (this.id == 'moderate'){
           var selectedLayer = "stormwater-moderate"
           var unselectedLayer = "stormwater-extreme"
           var unselectedId = "extreme"
+          $('#stormsurgeStat').html(statMod);
         } else if (this.id == 'extreme'){
           var selectedLayer = "stormwater-extreme"
           var unselectedLayer = "stormwater-moderate"
           var unselectedId = "moderate"
+          $('#stormsurgeStat').html(statExtr);
         }
 
 
