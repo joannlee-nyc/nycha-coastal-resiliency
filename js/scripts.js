@@ -202,11 +202,11 @@ map.on("load", function () {
   // Add layer toggle functionality to radio buttons
       // Source: https://hannahrosey.github.io/section8-flood-risk/
       $('.layertoggle').on('click', function(e) {
-        if (this.id == 100){
+        if (this.id == '100'){
           var selectedLayer = "floodplain-100"
           var unselectedLayer = "floodplain-500"
           var unselectedId = "#500"
-        } else if (this.id == 500){
+        } else if (this.id == '500'){
           var selectedLayer = "floodplain-500"
           var unselectedLayer = "floodplain-100"
           var unselectedId = "#100"
@@ -244,7 +244,7 @@ map.on("load", function () {
         };
       });
 
-      
+
 
 
 
