@@ -75,6 +75,37 @@
         <div id='mapContainer'>
           <!-- this is where mapboxGL will insert the map -->
         </div>
+        <!--radio-->
+        <div id='toggle-floodplains'>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" id='100' checked='true' class='layertoggle' aria-label="100 Year Floodplain">100 Year Floodplain</input>
+              </div>
+              <div class="input-group-text">
+                <input type="radio" id='500'  class='layertoggle' aria-label="500 Year Floodplain">500 Year Floodplain</input>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id='toggle-stormwater'>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" id='moderate' checked='true' class='layertoggle' aria-label="Moderate">Moderate</input>
+              </div>
+              <div class="input-group-text">
+                <input type="radio" id='extreme' class='layertoggle' aria-label="Extreme">Extreme</input>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">

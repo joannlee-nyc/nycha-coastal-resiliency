@@ -98,6 +98,8 @@ map.on("load", function () {
       "fill-opacity": 0.9,
     },
   });
+
+/*
   //toggle code from https://docs.mapbox.com/mapbox-gl-js/example/toggle-layers/
   // After the last frame rendered before the map enters an "idle" state.
   map.on("idle", () => {
@@ -131,11 +133,10 @@ map.on("load", function () {
         label: 'Extreme Stormwater Flood'
       },
     ];
-
     // Set up the corresponding toggle button for each layer.
     for (const id of toggleableLayerIds) {
       // Skip layers that already have a button set up.
-      if (document.getElementById(id)) {
+      if (document.getElementById(layer.id)) {
         continue;
       }
 
@@ -196,6 +197,61 @@ map.on("load", function () {
     }
   });
   //end toggle
+  */
+
+  // Add layer toggle functionality to radio buttons
+      // Source: https://hannahrosey.github.io/section8-flood-risk/
+      $('.layertoggle').on('click', function(e) {
+        if (this.id == 100){
+          var selectedLayer = "floodplain-100"
+          var unselectedLayer = "floodplain-500"
+          var unselectedId = "#500"
+        } else if (this.id == 500){
+          var selectedLayer = "floodplain-500"
+          var unselectedLayer = "floodplain-100"
+          var unselectedId = "#100"
+        }
+        if (this.id == 'moderate'){
+          var selectedLayer = "stormwater-moderate"
+          var unselectedLayer = "stormwater-extreme"
+          var unselectedId = "extreme"
+        } else if (this.id == 'extreme'){
+          var selectedLayer = "stormwater-extreme"
+          var unselectedLayer = "stormwater-moderate"
+          var unselectedId = "moderate"
+        }
+
+
+        // get and toggle radio button checked status for unselected layer
+        $(unselectedId).prop('checked', false);
+
+        // get and toggle visibility on for selected layer
+        var visibility = map.getLayoutProperty(
+          selectedLayer,'visibility'
+        );
+
+        if (visibility == 'none'){
+          map.setLayoutProperty(selectedLayer, 'visibility', 'visible');
+        };
+
+        // get and toggle visibility off for unselected layer
+        var visibility = map.getLayoutProperty(
+          unselectedLayer,'visibility'
+        );
+
+        if (visibility != 'none'){
+          map.setLayoutProperty(unselectedLayer, 'visibility', 'none');
+        };
+      });
+
+      
+
+
+
+
+
+
+
 
   // Create a popup, but don't add it to the map yet.
   const popup = new mapboxgl.Popup({
