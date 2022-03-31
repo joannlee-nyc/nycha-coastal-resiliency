@@ -148,6 +148,7 @@
             </p>
             <p><b>Methodology:</b><br>
               This map was created using public data published by the City of New York and the <a href="https://docs.mapbox.com/mapbox-gl-js/guides/" target="_blank">Mapbox GL JS</a> library. Further data cleaning and geospatial analysis was completed using <a href="https://qgis.org/en/site/" target="_blank">QGIS.</a>
+              <p class="disclaimer"><i>Note: Statistics calculating the number of NYCHA residents are accurate as of March 2020.</i></p>
             </p>
             <p><b>Data Sources:</b><br>
               <a href="https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb" target="_blank">100-year Floodplain</a>*,
@@ -155,9 +156,12 @@
               <a href="https://data.cityofnewyork.us/City-Government/NYC-Stormwater-Flood-Map-Moderate-Flood/5rzh-cyqd" target="_blank">NYC Stormwater Flood Map - Moderate Flood</a>,
               <a href="https://data.cityofnewyork.us/City-Government/NYC-Stormwater-Flood-Map-Extreme-Flood/w8eg-8ha6" target="_blank">NYC Stormwater Flood Map - Extreme Flood</a>,
               <a href="https://data.cityofnewyork.us/City-Government/NYC-Recovery-Resiliency-Projects-Map-Polygons/fpuh-f5mr" target="_blank">NYC Recovery & Resiliency Projects Map</a>,
-              <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">Map of NYCHA Developments</a><br><br>
-              <i>*Clipped to <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm" target="_blank">NYC Borough Boundaries</a> using QGIS.</i>
+              <a href="https://data.cityofnewyork.us/Housing-Development/Map-of-NYCHA-Developments/i9rv-hdr5" target="_blank">Map of NYCHA Developments</a>
+              <p class="disclaimer"><i>Note: Sea Level Rise Maps and Stormwater Flood Maps were processed in QGIS to fix and simplify geometries and dissolved to remove overlapping polygons. Floodplain maps were also clipped to <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm" target="_blank">NYC Borough Boundaries</a>.</i></p>
             </p>
+            <hr>
+            <p class="blurb">
+              This project was completed for an <a href="https://wagner.nyu.edu/education/courses/advanced-gis-interactive-web-mapping-and-spatial-data-visualization" target="_blank">interactive webmapping course</a> at NYU Wagner.</i> Special thanks to <a href="https://github.com/chriswhong" target="_blank">Chris Whong</a> for his expertise and support. If you're interested in seeing more of my work, please check out my <a href="https://joann-lee.com" target="_blank>">website</a> and <a href="https://medium.com/@joannlee_nyc" target="_blank">blog</a>.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
@@ -171,6 +175,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 
