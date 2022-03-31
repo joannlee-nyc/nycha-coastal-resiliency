@@ -1,6 +1,10 @@
 mapboxgl.accessToken =
   "pk.eyJ1Ijoiam9hbm5sZWUiLCJhIjoiY2t6aG5wZDJqMGlyZDJwcWhta2pldWNlYyJ9.SF7LAInpjGYwkH-_Wo_4dA";
-
+  // Set bounds to San Francisco, California.
+  const bounds = [
+    [-74.325943,40.466801], // Southwest coordinates
+    [-73.605995,40.934784] // Northeast coordinates
+  ];
 //long lat for NYC Center
 var nycCenter = [-73.935242, 40.73061];
 
@@ -10,6 +14,7 @@ var map = new mapboxgl.Map({
   center: nycCenter, // starting position as [lng, lat]
   zoom: 10,
   minZoom:9.5,
+  maxBounds: bounds // Set the map's geographical boundaries.
 });
 
 // Statistics for accordion
@@ -297,8 +302,8 @@ map.on("load", function () {
     }
 
     var popupContent = `
-        <h6 style="color:#404040; text-align:center;">${name}</h6>
-        <p style="color:#404040;">
+        <h6>${name}</h6>
+        <p>
           <strong>Population:</strong> ${population}<br>
           <strong>Planned Resiliency Upgrades:</strong> ${planned_projects}
         </p>
